@@ -1,18 +1,21 @@
 h1 {
-    padding:5px;
+    padding:50px;
+}
+
+
+form{
+    padding: 100px;
+    height: 150px;
+}
+
+body{
     text-align: center;
 }
 
-h2 {
-    padding:3px;
-   
-    text-align: center;
-}
-
-table{
-    text-align: center;
-}
-
-.example{
-    height: 5em;
+div{
+    display:grid;
+    justify-items:center;
+    margin-top:0;
+    margin-bottom:0;
+    padding-left:0;
 }

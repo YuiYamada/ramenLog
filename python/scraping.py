@@ -29,7 +29,7 @@ search_button.click()
 
 time.sleep(3)
 
-login_button = driver.find_element_by_class_name("section-result-title")
+login_button = driver.find_element_by_css_selector('.section-result-title')
 login_button.click()
 
 time.sleep(3)

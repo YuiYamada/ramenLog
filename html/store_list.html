@@ -5,24 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/jquery-migrate-3.4.0.min.js"></script>
     <title>レビューサイトA（仮）</title>
 </head>
 <body>
     <!--<br />-->
     <h1>レビューサイト（仮）
-        <!--画像-->
-        <img src="../image/review_man_star5.png">
+        <!--画像
+        <img src="../image/review_man_star5.png">-->
     </h1>
+    
+    
+    <form>
+        <select name="test" size="1" id="tx" >
+            <option value="東京">東京</option>
+            <option value="大阪">大阪</option>
+            <option value="北海道">北海道</option>
+            <option value="長野">長野</option>
+        </select>
+    
+        <!--<input type="search" size="30" name="search" class="example" id="tx" placeholder="地域を入力してください">-->
+        <input type="button" name="button" class="example" value="検索" onclick="clickSearch()">
+    </form>
+
     <div id="placeName"></div>
     
     <!-- ここのtxtの部分にjsからデータを表示する -->
     <div id="txt"></div>
-
-    <form>
-        <input type="search" size="30" name="search" class="example" id="tx" placeholder="地域を入力してください">
-        <input type="button" name="button" class="example" value="検索" onclick="clickSearch()">
-    </form>
-
     
     <!--
         <table border="1" id="storeList">

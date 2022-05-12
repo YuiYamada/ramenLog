@@ -36,19 +36,21 @@ function clickSearch(){
     
     //placesList配列をループして、
     //結果表示のHTMLタグを組み立てる
-    var resultHTML = "<ol>";
+    var resultHTML = "<table border = 1>";
 
     for(var k = 0; k < placesList.length; k++){
         var rating = placesList[k].rating;
         var shopName = placesList[k].shopName;
+        var ranking = k+1;
+        var content = "<th>"+ ranking +"位"+ "</th>"+"<th>"+"[" + rating + "]"+"</th>" +"<td>"+ 
+        "<a href=https://www.google.co.jp/maps/place/%E3%83%9E%E3%82%AF%E3%83%89%E3%83%8A%E3%83%AB%E3%83%89+%EF%BC%AA%EF%BC%B2%E6%96%B0%E5%AE%BF%E5%8D%97%E5%8F%A3%E5%BA%97/@35.6902648,139.70088,17z/data=!4m5!3m4!1s0x60188cda95783253:0x932692b07c5d5867!8m2!3d35.6893158!4d139.7025099?hl=ja>"
+         +shopName+"</a>" +"</td>";
 
-        var content = "[" + rating + "]" +"&emsp;"+ shopName;
-
-        resultHTML += "<li>";
+        resultHTML += "<tr>";
         resultHTML += content;
-        resultHTML += "</li>";
+        resultHTML += "</tr>";
     }
-    resultHTML += "</ol>";
+    resultHTML += "</table>";
 
     document.getElementById('txt').innerHTML = resultHTML;
 }

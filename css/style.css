@@ -2,14 +2,13 @@ h1 {
     padding:50px;
 }
 
-
 form{
-    padding: 100px;
-    height: 150px;
+    text-align: center;
 }
 
-body{
+select{
     text-align: center;
+    width: 150px;
 }
 
 div{

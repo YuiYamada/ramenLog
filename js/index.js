@@ -21,8 +21,8 @@
 //};
 
 function clickSearch(){
+    //txの内容が渡せていない
     var search_catch = document.getElementById("tx").value;
-    alert(search_catch);
     placeNameResult = search_catch + "周辺の人気飲食店";
     document.getElementById('placeName').innerHTML = placeNameResult;
 

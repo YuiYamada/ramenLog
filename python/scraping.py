@@ -27,9 +27,9 @@ time.sleep(1)
 search_button = driver.find_element_by_xpath("//*[@id='searchbox-searchbutton']")
 search_button.click()
 
-time.sleep(3)
+time.sleep(5)
 
-login_button = driver.find_element_by_css_selector('.section-result-title')
+login_button = driver.find_element_by_class_name("//*[@id='pane']/div/div[1]/div/div/div[2]/div[1]/div[3]/div/div[2]")
 login_button.click()
 
 time.sleep(3)
@@ -47,3 +47,6 @@ print(link[0].text.strip())
 print(link[2].text.strip())
 print(link[3].text.strip())
 print("-------------------------------")
+
+#終了
+driver.quit()

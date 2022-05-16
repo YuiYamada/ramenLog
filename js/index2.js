@@ -39,8 +39,33 @@ $("#test2").html(placeName + "周辺の" + genreName + "ランキング")
 
 $.getJSON("../json/testData.json") // json読み込み開始
   .done(function(json){ // jsonの読み込みに成功した時
-    alert("rating:"+json[1].rating);
+    makeList(json);
   })
   .fail(function(){ // jsonの読み込みに失敗した時
     alert('失敗');
   });
+
+function makeList(json){
+
+    var resultHTML = "<ol>";
+    for (var i = 0; i < json.length; i++) {
+        //ratingがないのものは「---」に表示変更
+        var rating = json[i].rating;
+        var ranking = json[i].ranking;
+        var shopName = json[i].shopName;
+        var info = json[i].info;
+        var url = json[i].URL;
+        //if(rating == undefined) rating = "---";
+        
+        //表示内容（評価＋名称）
+        var content = ranking + " " +rating + shopName + info + url;
+        
+        resultHTML += "<li>";
+        resultHTML += content;
+        resultHTML += "</li>";
+    }
+    resultHTML += "</ol>";
+    //結果表示
+    document.getElementById("shopList").innerHTML = resultHTML;
+    
+}

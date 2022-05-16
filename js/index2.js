@@ -22,7 +22,7 @@ function getUrlParam(param){
 
 var placeName = getUrlParam("place+name");
 var genreName = getUrlParam("genre+name");
-$("#test2").html(placeName + "周辺の" + genreName + "ランキング")
+$("#test2").html(placeName + "周辺の" + genreName + "料理店ランキングTOP5")
 
 /*function getJsonData(){
     $.getJSON("../json/testData.json",function(shopData){
@@ -47,7 +47,7 @@ $.getJSON("../json/testData.json") // json読み込み開始
 
 function makeList(json){
 
-    var resultHTML = "<ol>";
+    var resultHTML = "<ul>";
     for (var i = 0; i < json.length; i++) {
         //ratingがないのものは「---」に表示変更
         var rating = json[i].rating;
@@ -58,13 +58,14 @@ function makeList(json){
         //if(rating == undefined) rating = "---";
         
         //表示内容（評価＋名称）
-        var content = ranking + " " +rating + shopName + info + url;
+        var content = ranking + " 位" + "  ★" +rating + 
+            "  店舗名：" + shopName.link(url) + "<br>" +"  詳細情報：" + info;
         
         resultHTML += "<li>";
         resultHTML += content;
         resultHTML += "</li>";
     }
-    resultHTML += "</ol>";
+    resultHTML += "</ul>";
     //結果表示
     document.getElementById("shopList").innerHTML = resultHTML;
     

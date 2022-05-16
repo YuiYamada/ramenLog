@@ -24,3 +24,23 @@ var placeName = getUrlParam("place+name");
 var genreName = getUrlParam("genre+name");
 $("#test2").html(placeName + "周辺の" + genreName + "ランキング")
 
+/*function getJsonData(){
+    $.getJSON("../json/testData.json",function(shopData){
+        alert("rating:" + shopData[0].rating);
+        //var len = shopData.length;
+        //var list = $("#shopList");
+
+        //for(var i = 0; i < len; i++) {
+        //    list.append($("<li>").attr({"順位":shopData[i].ranking}));
+        //  }
+
+    })
+};*/
+
+$.getJSON("../json/testData.json") // json読み込み開始
+  .done(function(json){ // jsonの読み込みに成功した時
+    alert("rating:"+json[1].rating);
+  })
+  .fail(function(){ // jsonの読み込みに失敗した時
+    alert('失敗');
+  });

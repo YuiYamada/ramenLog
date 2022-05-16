@@ -1,0 +1,37 @@
+﻿[
+    {
+        "ranking": 1,
+        "rating": 4.7,
+        "shopName": "割烹　三長",
+        "info": "築60年以上の日本家屋を改装した趣のある店内。庭を眺めながら、こだわりの食材で調理した会席料理などが楽しめる。",
+        "URL": "https://g.page/Kappo-Sancho?share"
+    },
+    {
+        "ranking": 2,
+        "rating": 4.4,
+        "shopName": "なみの上",
+        "info": " 和食店",
+        "URL": "https://goo.gl/maps/5WaxPBdoawJsSJ2v5"
+    },
+    {
+        "ranking": 3,
+        "rating": 4.2,
+        "shopName": "渋谷三心",
+        "info": " 和食店",
+        "URL": "https://g.page/shibuyasanshin?share"
+    },
+    {
+        "ranking": 4,
+        "rating": 4.2,
+        "shopName": "食幹　渋谷",
+        "info": "オープンキッチンを囲むカウンター席が中心の、地階1階にある創作和食の店。和モダンな落ち着く空間。種類豊富な日本酒を取り揃えている。",
+        "URL": "https://g.page/shokkan_shibuya?share"
+    },
+    {
+        "ranking": 5,
+        "rating": 4,
+        "shopName": "小割烹おはし　渋谷",
+        "info": " おばんざい料理店渋谷スクランブル交差点を見下ろす落ち着いた店内でおばんざいなど京料理を味わえる。",
+        "URL": "https://goo.gl/maps/Pib7KbpanSUr8xaJ6"
+    }
+]

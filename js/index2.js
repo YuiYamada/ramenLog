@@ -55,11 +55,12 @@ function makeList(json){
         var shopName = json[i].shopName;
         var info = json[i].info;
         var url = json[i].URL;
+        var detailUrl = "../html/store_detail.html" + "?" + "shopName" + "=" +shopName;
         //if(rating == undefined) rating = "---";
         
         //表示内容（評価＋名称）
         var content = ranking + " 位" + "  ★" +rating + 
-            "  店舗名：" + shopName.link(url) + "<br>" +"  詳細情報：" + info;
+            "  店舗名：" + shopName.link(detailUrl) + "<br>" +"  詳細情報：" + info;
         
         resultHTML += "<li>";
         resultHTML += content;

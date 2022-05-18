@@ -11,45 +11,24 @@
 <body>
     <h1 id="shopName"></h1>
 
-    <ul class="tab">
-        <li>
-            <a href="#top">トップ</a>
-        </li>
-        <li>
-            <a href="#mou">口コミ</a>
-        </li>
-        <li>
-            <a href="#map">マップ</a>
-        </li>
-    </ul>
-    
-    <div id="top" class="area">
-        <h2>トップ</h2>
-        <ul>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-        </ul>
-    </div>
+    <div class="area">
 
-    <div id="mou" class="area">
-        <h2>口コミ</h2>
-        <ul>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-        </ul>
-    </div>
+        <input type="radio" name="tab_name" id="tab1" checked>
+        <label class="tab_class" for="tab1">トップ</label>
+        <div class="content_class" id="topList">
+        </div>
 
-    <div id="map" class="area">
-        <h2>マップ</h2>
-        <ul>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-        </ul>
-    </div>
+        <input type="radio" name="tab_name" id="tab2" >
+        <label class="tab_class" for="tab2">口コミ</label>
+        <div class="content_class" id="mouList">
+        </div>
 
+        <input type="radio" name="tab_name" id="tab3" >
+        <label class="tab_class" for="tab3">マップ</label>
+        <div class="content_class" id="mapList">
+        </div>
+        
+    </div>
     <script type="text/javascript" src="../js/detail.js"></script>
 </body>
 </html>

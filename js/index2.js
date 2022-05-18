@@ -8,7 +8,6 @@
     return {placeName:placeName, genreName:genreName}
 }) */
 
-
 function getUrlParam(param){
     var pageUrl = window.location.search.substring(1);
     var urlVar = pageUrl.split('&');
@@ -46,7 +45,6 @@ $.getJSON("../json/testData.json") // json読み込み開始
   });
 
 function makeList(json){
-
     var resultHTML = "<ul>";
     for (var i = 0; i < json.length; i++) {
         //ratingがないのものは「---」に表示変更
@@ -69,5 +67,4 @@ function makeList(json){
     resultHTML += "</ul>";
     //結果表示
     document.getElementById("shopList").innerHTML = resultHTML;
-    
 }

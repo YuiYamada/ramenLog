@@ -55,7 +55,7 @@ function makeList(json,placeName,genreName){
         var shopName = json[i].shopName;
         var genre = json[i].genre;
         var place = json[i].place;
-        var imgURL = json[i].img[1].imgURL;
+        var imgURL = json[i].shopImgURL;
         var detailUrl = "../html/store_detail.html" + "?" + "shopName" + "=" +shopName;
         //if(rating == undefined) rating = "---";
         

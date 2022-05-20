@@ -21,7 +21,7 @@ function getUrlParam(param){
 
 var placeName = getUrlParam("place+name");
 var genreName = getUrlParam("genre+name");
-$("#test2").html(placeName + "の" + genreName + "ラーメン店TOP5！")
+$("#test2").html(placeName + "人気" + genreName +"ラーメン店！")
 
 /*function getJsonData(){
     $.getJSON("../json/testData.json",function(shopData){

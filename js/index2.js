@@ -21,7 +21,7 @@ function getUrlParam(param){
 
 var placeName = getUrlParam("place+name");
 var genreName = getUrlParam("genre+name");
-$("#test2").html(placeName + "周辺の" + genreName + "料理店ランキングTOP5")
+$("#test2").html(placeName + "の" + genreName + "ラーメン店TOP5！")
 
 /*function getJsonData(){
     $.getJSON("../json/testData.json",function(shopData){
@@ -36,33 +36,38 @@ $("#test2").html(placeName + "周辺の" + genreName + "料理店ランキング
     })
 };*/
 
-$.getJSON("../json/testData.json") // json読み込み開始
+$.getJSON("../json/shopData.json") // json読み込み開始
   .done(function(json){ // jsonの読み込みに成功した時
-    makeList(json);
+    makeList(json,getUrlParam("place+name"),getUrlParam("genre+name"));
   })
   .fail(function(){ // jsonの読み込みに失敗した時
     alert('失敗');
   });
 
-function makeList(json){
+function makeList(json,placeName,genreName){
     var resultHTML = "<ul>";
+    var imgWidth = "300";
+    var imgHeight = "150";
     for (var i = 0; i < json.length; i++) {
+        
         //ratingがないのものは「---」に表示変更
         var rating = json[i].rating;
-        var ranking = json[i].ranking;
         var shopName = json[i].shopName;
-        var info = json[i].info;
-        var url = json[i].URL;
+        var genre = json[i].genre;
+        var place = json[i].place;
+        var imgURL = json[i].img[1].imgURL;
         var detailUrl = "../html/store_detail.html" + "?" + "shopName" + "=" +shopName;
         //if(rating == undefined) rating = "---";
         
-        //表示内容（評価＋名称）
-        var content = ranking + " 位" + "  ★" +rating + 
-            "  店舗名：" + shopName.link(detailUrl) + "<br>" +"  詳細情報：" + info;
-        
-        resultHTML += "<li>";
-        resultHTML += content;
-        resultHTML += "</li>";
+        if((placeName === place || placeName === "") && (genreName === genre || genreName === "")){
+            //表示内容（評価＋名称）
+            var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + "height=" + imgHeight + ">"
+             + "  店舗名：" + shopName.link(detailUrl) + "  ★" +rating ;
+            
+            resultHTML += "<li>";
+            resultHTML += content;
+            resultHTML += "</li>";
+        }
     }
     resultHTML += "</ul>";
     //結果表示

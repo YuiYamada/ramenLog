@@ -36,7 +36,7 @@ $("#test2").html(placeName + "人気" + genreName +"ラーメン店！")
     })
 };*/
 
-$.getJSON("../json/shopData.json") // json読み込み開始
+$.getJSON("../json/shopData2.json") // json読み込み開始
   .done(function(json){ // jsonの読み込みに成功した時
     makeList(json,getUrlParam("place+name"),getUrlParam("genre+name"));
   })
@@ -50,12 +50,12 @@ function makeList(json,placeName,genreName){
     var imgHeight = "150";
     for (var i = 0; i < json.length; i++) {
         
-        //ratingがないのものは「---」に表示変更
         var rating = json[i].rating;
         var shopName = json[i].shopName;
         var genre = json[i].genre;
         var place = json[i].place;
         var imgURL = json[i].shopImgURL;
+        var id = json[i].id;
         var detailUrl = "../html/store_detail.html" + "?" + "shopName" + "=" +shopName;
         //if(rating == undefined) rating = "---";
         
@@ -63,13 +63,31 @@ function makeList(json,placeName,genreName){
             //表示内容（評価＋名称）
             var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + "height=" + imgHeight + ">"
              + "  店舗名：" + shopName.link(detailUrl) + "  ★" +rating ;
+
+            var bookMark = "<input type=" + "radio" + " " +"id=" + id + " value=" + id + " onclick=" + "radioDeselection(this,1)>"
             
-            resultHTML += "<li>";
+            resultHTML += "<li>"
             resultHTML += content;
+            resultHTML += bookMark;
             resultHTML += "</li>";
         }
     }
     resultHTML += "</ul>";
     //結果表示
     document.getElementById("shopList").innerHTML = resultHTML;
+    let json_data = JSON.stringify(json);
+}
+
+function clickedBottun(id,)
+
+//ラジオボタン消せる
+var remove = 0;
+
+function radioDeselection(already, numeric) {
+  if(remove == numeric) {
+    already.checked = false;
+    remove = 0;
+  } else {
+    remove = numeric;
+  }
 }

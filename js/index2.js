@@ -23,29 +23,14 @@ var placeName = getUrlParam("place+name");
 var genreName = getUrlParam("genre+name");
 $("#test2").html(placeName + "人気" + genreName +"ラーメン店！")
 
-/*function getJsonData(){
-    $.getJSON("../json/testData.json",function(shopData){
-        alert("rating:" + shopData[0].rating);
-        //var len = shopData.length;
-        //var list = $("#shopList");
+//読み込み時リスト作成
+$(function(){
+    makeList(loadLocal(),getUrlParam("place+name"),getUrlParam("genre+name"));
+})
 
-        //for(var i = 0; i < len; i++) {
-        //    list.append($("<li>").attr({"順位":shopData[i].ranking}));
-        //  }
-
-    })
-};*/
-
-//JSON読み込み
-$.getJSON("../json/shopData2.json") // json読み込み開始
-  .done(function(json){ // jsonの読み込みに成功した時
-    makeList(json,getUrlParam("place+name"),getUrlParam("genre+name"));
-  })
-  .fail(function(){ // jsonの読み込みに失敗した時
-    alert('失敗');
-  });
-
+//リスト作成関数
 function makeList(json,placeName,genreName){
+    $("#shopList").empty();
     var resultHTML = "<ul>";
     var imgWidth = "300";
     var imgHeight = "150";
@@ -57,6 +42,7 @@ function makeList(json,placeName,genreName){
         var place = json[i].place;
         var imgURL = json[i].shopImgURL;
         var id = json[i].id;
+        var check = json[i].checked;
         var detailUrl = "../html/store_detail.html" + "?" + "shopName" + "=" +shopName;
         //if(rating == undefined) rating = "---";
         
@@ -65,7 +51,12 @@ function makeList(json,placeName,genreName){
             var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + "height=" + imgHeight + ">"
              + "  店舗名：" + shopName.link(detailUrl) + "  ★" + rating ;
 
-            var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop>"
+            if(check==0){
+                var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop>"
+            }else{
+                var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop checked>"
+            }
+            
             
             resultHTML += "<li>"
             resultHTML += content;
@@ -76,11 +67,42 @@ function makeList(json,placeName,genreName){
     resultHTML += "</ul>";
     //結果表示
     document.getElementById("shopList").innerHTML = resultHTML;
-    let json_data = JSON.stringify(json);
 }
 
-//ラジオボタンID取得
-function getRadioId(){
-    var radio = document.getElementsByName("shop");
-    console.log(radio.length);
+
+//ローカルストレージにデータあればロード　無ければアップする
+function loadLocal(){
+    var data = localStorage.getItem("data");
+    if(data){
+            console.log(data);
+            return JSON.parse(data);
+    }else{
+        $.getJSON("../json/shopData3.json").done(function(json){
+            let json_data = JSON.stringify(json);
+            localStorage.setItem('data', json_data);
+            return json;
+        })
+    }
 }
+
+$(function(){
+    $('[name="shop"]').change(function(){
+        var json = loadLocal();
+            console.log("s");
+            $('input:checked').each(function() {
+                var r = $(this).attr("id");
+                console.log(r);
+                json[r].checked = 1;
+                console.log(json[r]);
+            })
+            $('input:not(:checked)').each(function() {
+                var r = $(this).attr("id");
+                json[r].checked = 0;
+            })
+        
+        let json_data = JSON.stringify(json);
+        console.log(json_data);
+        localStorage.setItem('data', json_data);
+        
+    });
+});

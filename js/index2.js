@@ -26,7 +26,9 @@ function getUrlParam(param){
 
 var placeName = getUrlParam("place+name");
 var genreName = getUrlParam("genre+name");
-$("#test2").html(placeName + "人気" + genreName +"ラーメン店！")
+var selectPlace = $('input:radio[name = "place name"]:checked').val();
+var selectGenre = $('input:radio[name = "genre name"]:checked').val();
+$("#test2").html(selectPlace + "人気" + selectGenre +"ラーメン店！")
 
 //初期化ボタン
 $('#delete').click(function(){
@@ -44,6 +46,7 @@ $(function(){
 		var selectPlace = $('input:radio[name = "place name"]:checked').val();
         var selectGenre = $('input:radio[name = "genre name"]:checked').val();
         var selectFav = $('input:radio[name = "fav name"]:checked').val();
+        $("#test2").html(selectPlace + "人気" + selectGenre +"ラーメン店！")
         if(selectFav == 0){
             makeList(loadLocal(),selectPlace,selectGenre);
         }else{
@@ -57,9 +60,9 @@ $(function(){
 //リスト作成関数
 function makeList(json,placeName,genreName){
     $("#shopList").empty();
-    var resultHTML = "<ul>";
-    var imgWidth = "300";
-    var imgHeight = "150";
+    var resultHTML = '<ul class="allList">';
+    var imgWidth = "200";
+    var imgHeight = "100";
     for (var i = 0; i < json.length; i++) {
         
         var rating = json[i].rating;
@@ -70,23 +73,24 @@ function makeList(json,placeName,genreName){
         var id = json[i].id;
         var check = json[i].checked;
         var detailUrl = "../html/store_detail.html" + "?" + "shopName" + "=" +shopName;
+
         //if(rating == undefined) rating = "---";
         
         if((placeName === place || placeName === "") && (genreName === genre || genreName === "")){
             //表示内容（評価＋名称）
-            var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + "height=" + imgHeight + ">"
-             + "  店舗名：" + shopName.link(detailUrl) + "  ★" + rating ;
+            var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + " " + "height=" + imgHeight + " class=img" + ">"
+             + "<br>"
+             + shopName +"<br>"+ "  ★" + rating +"<br>";
 
             if(check==0){
-                var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop>"
+                var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox>" 
             }else{
-                var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop checked>"
+                var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox checked>"
             }
             
-            
-            resultHTML += "<li>"
+            resultHTML += '<li class="list">' + '<a href=' +detailUrl +'>';
             resultHTML += content;
-            resultHTML += bookMark;
+            resultHTML += "<label>" + bookMark + "おきにいり" + "</label>" + '</a>';
             resultHTML += "</li>";
         }
     }

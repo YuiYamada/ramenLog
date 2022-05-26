@@ -13,7 +13,7 @@ var shopName = getUrlParam("shopName");
 $("#shopName").html(shopName);
 
 
-$.getJSON("../json/shopData.json") // json読み込み開始
+$.getJSON("../json/shopData3.json") // json読み込み開始
   .done(function(json){ // jsonの読み込みに成功した時
     makeList(json);
   })

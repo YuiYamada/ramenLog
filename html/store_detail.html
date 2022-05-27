@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/detailstyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <title>詳細情報</title>
 </head>
 <body>
-    <h1 id="shopName"></h1>
+    <h1 id="shopName" class="shopName"></h1>
+    
+    <a href="../html/store_rating_list.html">
+        <img src="../image/ramen8.png" class="ramen1" >
+    </a>
+    
 
     <div class="area">
-
         <input type="radio" name="tab_name" id="tab1" checked>
         <label class="tab_class" for="tab1">トップ</label>
         <div class="content_class" id="topList">
@@ -21,6 +25,7 @@
         <input type="radio" name="tab_name" id="tab2" >
         <label class="tab_class" for="tab2">口コミ</label>
         <div class="content_class" id="mouList">
+            
         </div>
 
         <input type="radio" name="tab_name" id="tab3" >

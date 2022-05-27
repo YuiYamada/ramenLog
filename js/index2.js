@@ -57,6 +57,26 @@ $(function(){
     
 })
 
+//☆作
+function makeStar(rating){
+    var Srating = "";
+    if(4.6<=rating){
+        Srating="★★★★★　"+rating;
+    }else if(3.6<=rating&&rating<=4.5){
+        Srating="★★★★☆　"+rating;
+    }else if(2.6<=rating&&rating<=3.5){
+        Srating="★★★☆☆　"+rating;
+    }else if(1.6<=rating&&rating<=2.5){
+        Srating="★★☆☆☆　"+rating;
+    }else if(0.6<=rating&&rating<=1.5){
+        Srating="★☆☆☆☆　"+rating;
+    }else if(0<=rating&&rating<=0.5){
+        Srating="☆☆☆☆☆　"+rating;
+    }
+
+    return Srating;
+}
+
 //リスト作成関数
 function makeList(json,placeName,genreName){
     $("#shopList").empty();
@@ -73,14 +93,14 @@ function makeList(json,placeName,genreName){
         var id = json[i].id;
         var check = json[i].checked;
         var detailUrl = "../html/store_detail.html" + "?" + "shopName" + "=" +shopName;
+        var star = makeStar(rating);
 
-        //if(rating == undefined) rating = "---";
-        
         if((placeName === place || placeName === "") && (genreName === genre || genreName === "")){
+
             //表示内容（評価＋名称）
             var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + " " + "height=" + imgHeight + " class=img" + ">"
              + "<br>"
-             + shopName +"<br>"+ "  ★" + rating +"<br>";
+             + shopName +"<br>" + star +"<br>";
 
             if(check==0){
                 var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox>" 
@@ -103,8 +123,8 @@ function makeList(json,placeName,genreName){
 function makeFavList(json,placeName,genreName){
     $("#shopList").empty();
     var resultHTML = "<ul>";
-    var imgWidth = "300";
-    var imgHeight = "150";
+    var imgWidth = "200";
+    var imgHeight = "100";
     for (var i = 0; i < json.length; i++) {
         
         var rating = json[i].rating;
@@ -115,23 +135,24 @@ function makeFavList(json,placeName,genreName){
         var id = json[i].id;
         var check = json[i].checked;
         var detailUrl = "../html/store_detail.html" + "?" + "shopName" + "=" +shopName;
-        //if(rating == undefined) rating = "---";
+        var star = makeStar(rating);
         
         if((placeName === place || placeName === "") && (genreName === genre || genreName === "") && check == 1){
             //表示内容（評価＋名称）
-            var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + "height=" + imgHeight + ">"
-             + "  店舗名：" + shopName.link(detailUrl) + "  ★" + rating ;
+            var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + " " + "height=" + imgHeight + " class=img" + ">"
+             + "<br>"
+             + shopName +"<br>" + star +"<br>";
 
             if(check==0){
-                var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop>"
+                var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox>" 
             }else{
-                var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop checked>"
+                var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox checked>"
             }
             
             
-            resultHTML += "<li>"
+            resultHTML += '<li class="list">' + '<a href=' +detailUrl +'>';
             resultHTML += content;
-            resultHTML += bookMark;
+            resultHTML += "<label>" + bookMark + "おきにいり" + "</label>" + '</a>';
             resultHTML += "</li>";
         }
     }

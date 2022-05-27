@@ -1,0 +1,159 @@
+body{
+    background-color: #f1f1f1;
+
+}
+
+.ramen1{
+    position: absolute;
+    left:3em;
+    width: 5em;
+    top:0.5em;
+    position: fixed;
+}
+
+.area {
+    width: 700px;
+    margin: auto;
+    flex-wrap: wrap;
+    display: flex;
+    margin: 5em;
+    padding-left: 20em;
+  }
+   
+.tab_class {
+    width: calc(100%/5);
+    height: 50px;
+    background-color: rgb(219, 219, 219);
+    line-height: 50px;
+    font-size: 15px;
+    text-align: center;
+    display: block;
+    float: left;
+    order: -1;
+}
+   
+input[name="tab_name"] {
+    display: none;
+}
+   
+input:checked + .tab_class {
+    background-color: rgb(255, 197, 121);
+    color: rgb(0, 0, 0);
+}
+
+.content_class {
+    display: none;
+    width: 100%;
+}
+
+input:checked + .tab_class + .content_class {
+    display: block;
+}
+
+.topContents{
+    display: flex;
+    
+}
+
+.img1{
+    position: absolute;
+    left: 3em;
+    top: 8em;
+    border: 3px solid #474747;
+    border-radius: 5px;
+}
+
+.img2{
+    position: absolute;
+    left: 3em;
+    top: 19em;
+    border: 3px solid #474747;
+    border-radius: 5px;
+}
+
+.img3{
+    position: absolute;
+    left: 3em;
+    top: 30em;
+    border: 3px solid #474747;
+    border-radius: 5px;
+}
+
+.rating{
+    position: absolute;
+    left: 25em;
+    top: 10em;
+    list-style:none
+}
+
+.shopInfo{
+    position: absolute;
+    left: 25em;
+    top: 20em;
+    list-style:none
+}
+
+.shopName{
+    position: absolute;
+    left: 5em;
+    top: 0.5em;
+}
+
+.mou0{
+    position: relative;
+    right: 3em;
+    border: 3px solid #afadad;
+    border-radius: 5px;
+    margin: 1em;
+    list-style:none
+}
+
+.mou1{
+    position: relative;
+    right: 3em;
+    border: 3px solid #afadad;
+    border-radius: 5px;
+    margin: 1em;
+    list-style:none
+}
+
+.mou2{
+    position: relative;
+    right: 3em;
+    border: 3px solid #afadad;
+    border-radius: 5px;
+    margin: 1em;
+    list-style:none
+}
+
+.reviewr1{
+    position: absolute;
+    left: 6em;
+    width: 200px;
+    height: 200px;
+}
+
+.reviewr2{
+    position: absolute;
+    left: 6em;
+    width: 200px;
+    height: 200px;
+    top: 25em;
+}
+
+.address{
+    position: absolute;
+    left: 2em;
+    top: 10em;
+}
+
+.map{
+    position: relative;
+    left: 7em;
+    
+}
+
+iframe {
+    border: 3px solid #474747;
+    border-radius: 5px;
+}

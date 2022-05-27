@@ -21,6 +21,26 @@ $.getJSON("../json/shopData3.json") // json読み込み開始
     alert('失敗');
   });
 
+  //☆作
+function makeStar(rating){
+  var Srating = "";
+  if(4.6<=rating){
+      Srating="★★★★★　"+rating;
+  }else if(3.6<=rating&&rating<=4.5){
+      Srating="★★★★☆　"+rating;
+  }else if(2.6<=rating&&rating<=3.5){
+      Srating="★★★☆☆　"+rating;
+  }else if(1.6<=rating&&rating<=2.5){
+      Srating="★★☆☆☆　"+rating;
+  }else if(0.6<=rating&&rating<=1.5){
+      Srating="★☆☆☆☆　"+rating;
+  }else if(0<=rating&&rating<=0.5){
+      Srating="☆☆☆☆☆　"+rating;
+  }
+
+  return Srating;
+}
+
 function makeList(json){
   var imgWidth = "300";
   var imgHeight = "150";
@@ -29,6 +49,7 @@ function makeList(json){
           
           //jsonファイルの情報を取得
           var rating = json[i].rating;
+          var star5 = makeStar(rating);
           var shopName = json[i].shopName;
           var genre = json[i].genre;
           var place = json[i].place;
@@ -43,7 +64,7 @@ function makeList(json){
           var address = json[i].map.address;
 
           var mapWidth = "600";
-          var mapHeight = "450";
+          var mapHeight = "400";
           var mapStyle = "border:0;";
           var mapAllow = "";
           var mapLoad = "lazy";
@@ -52,25 +73,29 @@ function makeList(json){
           var mou = json[i].mou;
           
           //トップ画面表示内容作成
-          var topContents = "<img src=" + tenpoImg + " " + "width=" + imgWidth + "height=" + imgHeight + ">" +
-          "<img src=" + img1 + " " + "width=" + imgWidth + "height=" + imgHeight + ">" +
-          "<img src=" + img2 + " " + "width=" + imgWidth + "height=" + imgHeight + ">" +
-          "<li>" + "評価：　" + rating + "</li>" +
-          "<li>" +"店舗説明：　" + info + "</li>";
+          var topContents = "<img src=" + tenpoImg + " " + " width=" + imgWidth + " height=" + imgHeight + ' class="img1"' +">" +
+          "<img src=" + img1 + " " + " width=" + imgWidth + " height=" + imgHeight + ' class="img2"' + ">" +
+          "<img src=" + img2 + " " + " width=" + imgWidth + " height=" + imgHeight + ' class="img3"' + ">" +
+          "<li class='rating'>" + "評価：　" + star5 + "</li>" +
+          "<li class='shopInfo'>" +"店舗説明：　" + info + "</li>";
+
+          topContents = '<div class="topContents">' + topContents + '</div>';
 
           //口コミ表示内容作成
-          var mouContents = "";
+          var mouContents = "<img src='../image/gourmet_writer_woman.png' class='reviewr1'>";
+          mouContents += "<img src='../image/gourmet_writer_man.png' class='reviewr2'>";
           for(var k = 0; k < mou.length; k++){
             var mouInfo = mou[k].mouInfo;
             var star = mou[k].mouRating;
-            var content = "<li>" + "評価：　" + star + "<br>" + "内容：　" + mouInfo +"</li>";
+            var mouStar = makeStar(star);
+            var content = "<li class=mou" + k + ">" + "評価：　" +  mouStar + "<br>" + "<br>" + "内容：　" + mouInfo +"</li>";
             mouContents += content;
           }
 
           //マップ表示内容作成
-          var iframeHtml = "<iframe src =" + mapURL + "width=" + mapWidth + "height=" + mapHeight + "style=" + mapStyle + "allowfullscreen=" + mapAllow +
+          var iframeHtml = "<iframe class='map'  src =" + mapURL + " width=" + mapWidth + " height=" + mapHeight +  "allowfullscreen=" + mapAllow +
           "loading=" + mapLoad + "referrerpolicy=" + mapRe + "></iframe>"
-          var mapContents = "住所：　" + address + "<br>" + "マップ：　" + iframeHtml;
+          var mapContents = "<div class='address'>" + "住所：　" + address + "</div>" + "<br>" + " " + iframeHtml;
           
       }
       //結果表示

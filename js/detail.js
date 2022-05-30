@@ -21,23 +21,22 @@ $.getJSON("../json/shopData3.json") // json読み込み開始
     alert('失敗');
   });
 
-  //☆作
+//☆作
 function makeStar(rating){
   var Srating = "";
   if(4.6<=rating){
-      Srating="★★★★★　"+rating;
+      Srating="★★★★★　";
   }else if(3.6<=rating&&rating<=4.5){
-      Srating="★★★★☆　"+rating;
+      Srating="★★★★☆　";
   }else if(2.6<=rating&&rating<=3.5){
-      Srating="★★★☆☆　"+rating;
+      Srating="★★★☆☆　";
   }else if(1.6<=rating&&rating<=2.5){
-      Srating="★★☆☆☆　"+rating;
+      Srating="★★☆☆☆　";
   }else if(0.6<=rating&&rating<=1.5){
-      Srating="★☆☆☆☆　"+rating;
+      Srating="★☆☆☆☆　";
   }else if(0<=rating&&rating<=0.5){
-      Srating="☆☆☆☆☆　"+rating;
+      Srating="☆☆☆☆☆　";
   }
-
   return Srating;
 }
 
@@ -56,6 +55,15 @@ function makeList(json){
           var tenpoImg = json[i].shopImgURL;
           var img1 = json[i].img[0].imgURL;
           var img2 = json[i].img[1].imgURL;
+
+          var menuName1 = json[i].img[0].menuName;
+          var menuName2 = json[i].img[1].menuName;
+          
+          var menuPrice1 = json[i].img[0].menuPrice;
+          var menuPrice2 = json[i].img[1].menuPrice;
+          
+          var menuInfo1 = json[i].img[0].menuInfo;
+          var menuInfo2 = json[i].img[1].menuInfo;
 
           var info = json[i].info.shopInfo;
           var shopURL = json[i].info.shopURL;
@@ -76,10 +84,14 @@ function makeList(json){
           var topContents = "<img src=" + tenpoImg + " " + " width=" + imgWidth + " height=" + imgHeight + ' class="img1"' +">" +
           "<img src=" + img1 + " " + " width=" + imgWidth + " height=" + imgHeight + ' class="img2"' + ">" +
           "<img src=" + img2 + " " + " width=" + imgWidth + " height=" + imgHeight + ' class="img3"' + ">" +
-          "<li class='rating'>" + "評価：　" + star5 + "</li>" +
-          "<li class='shopInfo'>" +"店舗説明：　" + info + "</li>";
+          "<li class='rating'>" + "評価：　" + star5 + rating +"</li>" +
+          "<li class='shopInfo'>" +"店舗説明：　" + info + "</li>" ;
 
-          topContents = '<div class="topContents">' + topContents + '</div>';
+          var menuContents =  "<li class='menuInfo1'>" + menuName1 + "<br>" + "値段:  " + menuPrice1 + "</li>";
+          menuContents +=  "<li class='menuInfo2'>" + menuName2 + "<br>" + "値段:  " + menuPrice2 + "</li>";
+          menuContents +=  "<img src='../image/menu_chumon_family.png' class='menuImg'>";
+
+          topContents = '<div class="topContents">' + topContents + menuContents + '</div>';
 
           //口コミ表示内容作成
           var mouContents = "<img src='../image/gourmet_writer_woman.png' class='reviewr1'>";
@@ -88,7 +100,7 @@ function makeList(json){
             var mouInfo = mou[k].mouInfo;
             var star = mou[k].mouRating;
             var mouStar = makeStar(star);
-            var content = "<li class=mou" + k + ">" + "評価：　" +  mouStar + "<br>" + "<br>" + "内容：　" + mouInfo +"</li>";
+            var content = "<li class=mou" + k + ">" + "評価：　" +  mouStar + star + "<br>" + "<br>" + "内容：　" + mouInfo +"</li>";
             mouContents += content;
           }
 

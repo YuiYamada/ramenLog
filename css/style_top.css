@@ -158,6 +158,10 @@ li {
     margin: 0em 0em 2em 0em;
     box-sizing: border-box;
     background: #fff;
+    background-image: url(../image/ramen0.png);
+    background-size: 8em;
+    background-repeat: no-repeat;
+    background-position: right 10em top 8em; 
     display: flex;
     flex-direction: column;
     border: solid 1.5px #000000;
@@ -166,6 +170,16 @@ li {
     /*角の丸み*/
     align-items: center;
     justify-content: center;
+}
+
+.star{
+    color: #ffc400;
+}
+
+.rate{
+    display: flex;
+    position: relative;
+    left: 5em;
 }
 
 li a{

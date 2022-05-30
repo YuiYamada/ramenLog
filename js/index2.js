@@ -61,19 +61,18 @@ $(function(){
 function makeStar(rating){
     var Srating = "";
     if(4.6<=rating){
-        Srating="★★★★★　"+rating;
+        Srating="★★★★★　";
     }else if(3.6<=rating&&rating<=4.5){
-        Srating="★★★★☆　"+rating;
+        Srating="★★★★☆　";
     }else if(2.6<=rating&&rating<=3.5){
-        Srating="★★★☆☆　"+rating;
+        Srating="★★★☆☆　";
     }else if(1.6<=rating&&rating<=2.5){
-        Srating="★★☆☆☆　"+rating;
+        Srating="★★☆☆☆　";
     }else if(0.6<=rating&&rating<=1.5){
-        Srating="★☆☆☆☆　"+rating;
+        Srating="★☆☆☆☆　";
     }else if(0<=rating&&rating<=0.5){
-        Srating="☆☆☆☆☆　"+rating;
+        Srating="☆☆☆☆☆　";
     }
-
     return Srating;
 }
 
@@ -100,7 +99,7 @@ function makeList(json,placeName,genreName){
             //表示内容（評価＋名称）
             var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + " " + "height=" + imgHeight + " class=img" + ">"
              + "<br>"
-             + shopName +"<br>" + star +"<br>";
+             + shopName +"<br>" + "<div class='rate'>" + "<div class='star'>" + star + "</div>" +  rating + "</div>" + "<br>";
 
             if(check==0){
                 var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox>" 
@@ -138,17 +137,17 @@ function makeFavList(json,placeName,genreName){
         var star = makeStar(rating);
         
         if((placeName === place || placeName === "") && (genreName === genre || genreName === "") && check == 1){
+
             //表示内容（評価＋名称）
             var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + " " + "height=" + imgHeight + " class=img" + ">"
              + "<br>"
-             + shopName +"<br>" + star +"<br>";
+             + shopName +"<br>" + "<div class='rate'>" + "<div class='star'>" + star + "</div>" +  rating + "</div>" + "<br>";
 
             if(check==0){
                 var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox>" 
             }else{
                 var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox checked>"
             }
-            
             
             resultHTML += '<li class="list">' + '<a href=' +detailUrl +'>';
             resultHTML += content;

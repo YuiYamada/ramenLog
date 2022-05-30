@@ -99,7 +99,7 @@ function makeList(json,placeName,genreName){
             //表示内容（評価＋名称）
             var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + " " + "height=" + imgHeight + " class=img" + ">"
              + "<br>"
-             + shopName +"<br>" + "<div class='rate'>" + "<div class='star'>" + star + "</div>" +  rating + "</div>" + "<br>";
+             + "<h3 class='shopName'>" +shopName + "</h3>" + "<div class='star'>" + star + "</div>" +  rating + "</div>" + "<br>";
 
             if(check==0){
                 var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox>" 
@@ -141,7 +141,7 @@ function makeFavList(json,placeName,genreName){
             //表示内容（評価＋名称）
             var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + " " + "height=" + imgHeight + " class=img" + ">"
              + "<br>"
-             + shopName +"<br>" + "<div class='rate'>" + "<div class='star'>" + star + "</div>" +  rating + "</div>" + "<br>";
+             + "<h3 class='shopName'>" +shopName + "</h3>" +"<br>" + "<div class='rate'>" + "<div class='star'>" + star + "</div>" +  rating + "</div>" + "<br>";
 
             if(check==0){
                 var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox>" 

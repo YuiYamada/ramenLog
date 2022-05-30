@@ -84,11 +84,11 @@ function makeList(json){
           var topContents = "<img src=" + tenpoImg + " " + " width=" + imgWidth + " height=" + imgHeight + ' class="img1"' +">" +
           "<img src=" + img1 + " " + " width=" + imgWidth + " height=" + imgHeight + ' class="img2"' + ">" +
           "<img src=" + img2 + " " + " width=" + imgWidth + " height=" + imgHeight + ' class="img3"' + ">" +
-          "<li class='rating'>" + "評価：　" + star5 + rating +"</li>" +
-          "<li class='shopInfo'>" +"店舗説明：　" + info + "</li>" ;
+          "<li class='rating'>" + "<div class='starRating'>" + "<div class='star'>" + star5 + "</div>" + rating + "</div>" +"</li>" +
+          "<li class='shopInfo'>" + info + "</li>" ;
 
-          var menuContents =  "<li class='menuInfo1'>" + menuName1 + "<br>" + "値段:  " + menuPrice1 + "</li>";
-          menuContents +=  "<li class='menuInfo2'>" + menuName2 + "<br>" + "値段:  " + menuPrice2 + "</li>";
+          var menuContents =  "<li class='menuInfo1'>" + "<h3>" + menuName1 + "</h3>" + "<br>" + "値段:  " + menuPrice1  + "<br>" + menuInfo1 + "</li>";
+          menuContents +=  "<li class='menuInfo2'>" + "<h3>" + menuName2 + "</h3>" + "<br>" + "値段:  " + menuPrice2 + "<br>" + menuInfo2 + "</li>";
           menuContents +=  "<img src='../image/menu_chumon_family.png' class='menuImg'>";
 
           topContents = '<div class="topContents">' + topContents + menuContents + '</div>';
@@ -107,7 +107,8 @@ function makeList(json){
           //マップ表示内容作成
           var iframeHtml = "<iframe class='map'  src =" + mapURL + " width=" + mapWidth + " height=" + mapHeight +  "allowfullscreen=" + mapAllow +
           "loading=" + mapLoad + "referrerpolicy=" + mapRe + "></iframe>"
-          var mapContents = "<div class='address'>" + "住所：　" + address + "</div>" + "<br>" + " " + iframeHtml;
+          var mapContents = "<div class='address'>" + "<div class='address-img'>" + "住所：　" + address +  "<img src = '../image/smartphone_map_app_man.png' class = 'mapIllsut'>" +  "</div>" + "</div>" + "<br>" + " " + iframeHtml;
+          
           
       }
       //結果表示

@@ -102,24 +102,35 @@ input:checked + .tab_class + .content_class {
 .menuInfo1{
     position: absolute;
     left: 25em;
-    top: 18em;
-    list-style:none
+    top: 19em;
+    list-style:none;
+    width: 20em;
+}
 
+.star{
+    color: #ffc400;
+}
+
+.starRating{
+    display: flex;
+    font-size: 2em;
 }
 
 .menuInfo2{
     position: absolute;
     left: 25em;
-    top: 22em;
-    list-style:none
+    top: 30em;
+    list-style:none;
+    width: 20em;
     
 }
 
 .menuImg{
     position: absolute;
-    left: 40em;
-    top: 20em;
-
+    left: 60em;
+    top: 30em;
+    width: 15em;
+    height: 10em;
 }
 
 .mou0{
@@ -168,12 +179,25 @@ input:checked + .tab_class + .content_class {
     position: absolute;
     left: 2em;
     top: 10em;
+
+}
+
+.address-img{
+    display: flex;
 }
 
 .map{
     position: relative;
     left: 7em;
-    
+}
+
+.mapIllsut{
+    position: absolute;
+    top: 3em;
+    left: 7em;
+    top: 8em;
+    width: 15em;
+    height: 18em;
 }
 
 iframe {
@@ -181,4 +205,7 @@ iframe {
     border-radius: 5px;
 }
 
-
+h3{
+    border-bottom: solid 3px #87CEFA;
+    text-align: center;
+}

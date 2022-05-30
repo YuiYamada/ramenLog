@@ -99,7 +99,7 @@ function makeList(json,placeName,genreName){
             //表示内容（評価＋名称）
             var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + " " + "height=" + imgHeight + " class=img" + ">"
              + "<br>"
-             + "<h3 class='shopName'>" +shopName + "</h3>" + "<div class='star'>" + star + "</div>" +  rating + "</div>" + "<br>";
+             + "<h3 class='shopName'>" +shopName + "</h3>" + "<div class='rate'>" + "<div class='star'>" + star + "</div>" +  rating + "</div>" + "<br>";
 
             if(check==0){
                 var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox>" 
@@ -109,7 +109,7 @@ function makeList(json,placeName,genreName){
             
             resultHTML += '<li class="list">' + '<a href=' +detailUrl +'>';
             resultHTML += content;
-            resultHTML += "<label>" + bookMark + "おきにいり" + "</label>" + '</a>';
+            resultHTML += "<label class='check-box' for= "+ id +">" +  bookMark + "<span class='check-text'>" + "</span>" + "</label>" + '</a>';
             resultHTML += "</li>";
         }
     }
@@ -141,7 +141,7 @@ function makeFavList(json,placeName,genreName){
             //表示内容（評価＋名称）
             var content =  "<img src=" + imgURL + " " + "width=" + imgWidth + " " + "height=" + imgHeight + " class=img" + ">"
              + "<br>"
-             + "<h3 class='shopName'>" +shopName + "</h3>" +"<br>" + "<div class='rate'>" + "<div class='star'>" + star + "</div>" +  rating + "</div>" + "<br>";
+             + "<h3 class='shopName'>" +shopName + "</h3>" + "<div class='rate'>" + "<div class='star'>" + star + "</div>" +  rating + "</div>" + "<br>";
 
             if(check==0){
                 var bookMark = "<input type=" + "checkbox" + " " +"id=" + id + " name=shop class=checkbox>" 
@@ -151,7 +151,7 @@ function makeFavList(json,placeName,genreName){
             
             resultHTML += '<li class="list">' + '<a href=' +detailUrl +'>';
             resultHTML += content;
-            resultHTML += "<label>" + bookMark + "おきにいり" + "</label>" + '</a>';
+            resultHTML += "<label class='check-box' for= "+ id +">" +  bookMark + "<span class='check-text'>" + "</span>" + "</label>" + '</a>';
             resultHTML += "</li>";
         }
     }

@@ -4,6 +4,13 @@ body{
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+h1 {
+    position: absolute;
+    left: 5em;
+    top: 0.3em;
+    border-bottom: solid 3px rgb(255, 197, 121);
+}
+
 .ramen1{
     position: absolute;
     left:3em;

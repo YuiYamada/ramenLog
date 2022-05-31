@@ -40,7 +40,7 @@ body{
     width: 2em;
   }
 .check-box input:checked + .check-text::before {
-    background-image:url(../image/星アイコン6.png);
+    background-image:url(../image/star.png);
 }
 
 form {
@@ -51,6 +51,7 @@ h1 {
     position: absolute;
     left: 5em;
     top: 0.3em;
+    border-bottom: solid 3px rgb(255, 197, 121);
 }
 
 h3{
@@ -184,7 +185,7 @@ li {
     margin: 0em 0.3em 2em 0em;
     box-sizing: border-box;
     background: #fff;
-    background-image: url(../image/ramen0.png);
+    background-image: url(../image/ramen6.png);
     background-size: 8em;
     background-repeat: no-repeat;
     background-position: right 10em top 8em; 

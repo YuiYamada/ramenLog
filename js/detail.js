@@ -109,7 +109,7 @@ function makeList(json){
           //マップ表示内容作成
           var iframeHtml = "<iframe class='map'  src =" + mapURL + " width=" + mapWidth + " height=" + mapHeight +  "allowfullscreen=" + mapAllow +
           "loading=" + mapLoad + "referrerpolicy=" + mapRe + "></iframe>"
-          var mapContents = "<div class='address'>" + "<div class='address-img'>" + "<h3>" + "住所：　" + address + "</h3>" + "<img src = '../image/smartphone_map_app_man.png' class = 'mapIllsut'>" +  "</div>" + "</div>" + "<br>" + " " + iframeHtml;
+          var mapContents = "<div class='address'>" + "<div class='address-img'>" + "<h3>" + address + "</h3>" + "<img src = '../image/smartphone_map_app_man.png' class = 'mapIllsut'>" +  "</div>" + "</div>" + "<br>" + " " + iframeHtml;
           
           
       }

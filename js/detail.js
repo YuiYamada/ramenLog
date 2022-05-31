@@ -1,3 +1,4 @@
+//URLから値を取得する関数
 function getUrlParam(param){
   var pageUrl = window.location.search.substring(1);
   var urlVar = pageUrl.split('&');
@@ -100,7 +101,8 @@ function makeList(json){
             var mouInfo = mou[k].mouInfo;
             var star = mou[k].mouRating;
             var mouStar = makeStar(star);
-            var content = "<li class=mou" + k + ">" + "評価：　" +  mouStar + star + "<br>" + "<br>" + "内容：　" + mouInfo +"</li>";
+            var mouName = mou[k].mouName;
+            var content = "<li class=mou" + k + ">" + "<div class='mou-rating'>" + "<div class='star-color'>" + mouStar + "</div>" + "<div class='Rating'>" + star + "</div>" + "<div class='mou-name'>" + "投稿者：　" + mouName + "さん" + "</div>" + "</div>" + "<p>" + "内容：　" + mouInfo + "</p>" + "</li>";
             mouContents += content;
           }
 

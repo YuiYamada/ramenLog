@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 body{
     background-color: #f1f1f1;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .ramen1{

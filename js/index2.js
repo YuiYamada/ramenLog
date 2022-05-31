@@ -1,13 +1,4 @@
-/*$('#check').click(function input(){
-    var placeName = $('input[name = "place name"]:checked').val();
-    var genreName = $('input[name = "genre name"]:checked').val();
-
-    //window.location.href='../html/store_rating_list.html';
-
-    $("#test").html(placeName + genreName)
-    return {placeName:placeName, genreName:genreName}
-}) */
-
+//URLから値を取得する関数
 function getUrlParam(param){
     var pageUrl = window.location.search.substring(1);
     var urlVar = pageUrl.split('&');
@@ -21,16 +12,18 @@ function getUrlParam(param){
             }
         }
     }
-    
 }
 
+//変数へ場所とジャンルの名前をいれる
 var placeName = getUrlParam("place+name");
 var genreName = getUrlParam("genre+name");
+
+//絞り込みメニューを選択したとき値を取得　HTMLへ入力
 var selectPlace = $('input:radio[name = "place name"]:checked').val();
 var selectGenre = $('input:radio[name = "genre name"]:checked').val();
 $("#test2").html(selectPlace + "人気" + selectGenre +"ラーメン店！")
 
-//初期化ボタン
+//お気に入りしたものの初期化ボタン
 $('#delete').click(function(){
     $.getJSON("../json/shopData3.json").done(function(json){
         let json_data = JSON.stringify(json);
@@ -39,9 +32,8 @@ $('#delete').click(function(){
     })
 });
 
-//読み込み時リスト作成
+//画面読み込み時リスト作成
 $(function(){
-
     $('[name *= "name"]').click(function() {
 		var selectPlace = $('input:radio[name = "place name"]:checked').val();
         var selectGenre = $('input:radio[name = "genre name"]:checked').val();
@@ -54,7 +46,6 @@ $(function(){
         }
 	});
     makeList(loadLocal(),placeName,genreName);
-    
 })
 
 //☆作
@@ -78,6 +69,7 @@ function makeStar(rating){
 
 //リスト作成関数
 function makeList(json,placeName,genreName){
+    //リスト初期化
     $("#shopList").empty();
     var resultHTML = '<ul class="allList">';
     var imgWidth = "200";
@@ -175,7 +167,7 @@ function loadLocal(){
     }
 }
 
-
+//お気に入りボタンを押したときJSONデータを変更し、ローカルストレージへアップロード
 $(function(){
     $('input[name="shop"]').change(function(){
         var json = loadLocal();
@@ -187,10 +179,8 @@ $(function(){
                 var r = $(this).attr("id");
                 json[r].checked = 0;
             })
-        
         let json_data = JSON.stringify(json);
         console.log(json_data);
         localStorage.setItem('data', json_data);
-        
     });
 });

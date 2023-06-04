@@ -83,7 +83,7 @@ function makeList(json, placeName, genreName) {
     var id = json[i].id;
     var check = json[i].checked;
     var detailUrl =
-      "../html/store_detail.html" + "?" + "shopName" + "=" + shopName;
+      "html/store_detail.html" + "?" + "shopName" + "=" + shopName;
     var star = makeStar(rating);
 
     if (
@@ -240,7 +240,7 @@ function makeFavList(json, placeName, genreName) {
 function loadLocal() {
   var data = localStorage.getItem("data");
   if (data) {
-    console.log(data);
+    // console.log(data);
     return JSON.parse(data);
   } else {
     $.getJSON("../json/shopData3.json").done(function (json) {
@@ -264,7 +264,7 @@ $(function () {
       json[r].checked = 0;
     });
     let json_data = JSON.stringify(json);
-    console.log(json_data);
+    // console.log(json_data);
     localStorage.setItem("data", json_data);
   });
 });

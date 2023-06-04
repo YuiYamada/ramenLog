@@ -1,59 +1,99 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" type="text/css" href="../css/style_top.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <title>SUSURUCORE</title>
-        <link rel="icon" type="image/png" href="../image/ramen7.png">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="../css/style_top.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>SUSURUCORE</title>
+    <link rel="icon" type="image/png" href="../image/ramen7.png" />
+  </head>
 
-    <body>
-        
-    <h1 id="test2"></h1>   
-    <img src="../image/ramen7.png" class="ramen1">
-        <form class="select">
- 
-            <label for="label1" class="label">▼　絞り込みメニュー</label>
-            <input type="checkbox" id="label1" class="switch" />
-            <div class="selectMenu">
-             
-                <div class="place">
-                    <h3>地域：</h3>
-                    <label><input type="radio" name="place name" value="新宿">新宿</label>
-                    <label><input type="radio" name="place name" value="千代田区">千代田区</label>
-                    <label><input type="radio" name="place name" value="港区">港区</label>
-                    <label><input type="radio" name="place name" value="渋谷">渋谷</label>
-                    <label><input type="radio" name="place name" value="" checked="checked">どこでもよい</label>
-                </div>
-            
-                <div class="genre">
-                    <h3>味：</h3>
-                    <label><input type="radio" name="genre name" value="醤油">醤油</label>
-                    <label><input type="radio" name="genre name" value="塩">塩</label>
-                    <label><input type="radio" name="genre name" value="味噌">味噌</label>
-                    <label><input type="radio" name="genre name" value="豚骨">豚骨</label>
-                    <label><input type="radio" name="genre name" value="" checked="checked">なんでもよい</label>
-                </div>
+  <body>
+    <h1 id="test2"></h1>
+    <img src="../image/ramen7.png" class="ramen1" />
+    <form class="select">
+      <label for="label1" class="label">▼　絞り込みメニュー</label>
+      <input type="checkbox" id="label1" class="switch" />
+      <div class="selectMenu">
+        <div class="place">
+          <h3>地域：</h3>
+          <label
+            ><input type="radio" name="place name" value="新宿" />新宿</label
+          >
+          <label
+            ><input
+              type="radio"
+              name="place name"
+              value="千代田区"
+            />千代田区</label
+          >
+          <label
+            ><input type="radio" name="place name" value="港区" />港区</label
+          >
+          <label
+            ><input type="radio" name="place name" value="渋谷" />渋谷</label
+          >
+          <label
+            ><input
+              type="radio"
+              name="place name"
+              value=""
+              checked="checked"
+            />どこでもよい</label
+          >
+        </div>
 
-                <div class="fav">
-                    <h3>お気に入り</h3>
-                    <label><input type="radio" name="fav name" value=1>お気に入りのみ</label>
-                    <label><input type="radio" name="fav name" value=0 checked="checked">全範囲</label>
-                </div>
+        <div class="genre">
+          <h3>味：</h3>
+          <label
+            ><input type="radio" name="genre name" value="醤油" />醤油</label
+          >
+          <label><input type="radio" name="genre name" value="塩" />塩</label>
+          <label
+            ><input type="radio" name="genre name" value="味噌" />味噌</label
+          >
+          <label
+            ><input type="radio" name="genre name" value="豚骨" />豚骨</label
+          >
+          <label
+            ><input
+              type="radio"
+              name="genre name"
+              value=""
+              checked="checked"
+            />なんでもよい</label
+          >
+        </div>
 
-                <div class="delete">
-                    <button id="delete" class="delete">お気に入り初期化</button>
-                </div>
-                
-            </div>
+        <div class="fav">
+          <h3>お気に入り</h3>
+          <label
+            ><input
+              type="radio"
+              name="fav name"
+              value="1"
+            />お気に入りのみ</label
+          >
+          <label
+            ><input
+              type="radio"
+              name="fav name"
+              value="0"
+              checked="checked"
+            />全範囲</label
+          >
+        </div>
 
-        </form>
+        <div class="delete">
+          <button id="delete" class="delete">お気に入り初期化</button>
+        </div>
+      </div>
+    </form>
 
-        <div id="shopList" class="shopList"></div>
-        
-    <script type="text/javascript" src="../js/index2.js"></script> 
-    </body>
+    <div id="shopList" class="shopList"></div>
+
+    <script type="text/javascript" src="../js/index.js"></script>
+  </body>
 </html>

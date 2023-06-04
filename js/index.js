@@ -79,7 +79,7 @@ function makeList(json, placeName, genreName) {
     var shopName = json[i].shopName;
     var genre = json[i].genre;
     var place = json[i].place;
-    var imgURL = json[i].shopImgURL;
+    var imgURL = json[i].topShopImgURL;
     var id = json[i].id;
     var check = json[i].checked;
     var detailUrl =

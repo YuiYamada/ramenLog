@@ -32,7 +32,7 @@ $('#delete').click(function(){
     })
 });
 
-//画面読み込み時リスト作成
+//絞り込みメニュークリック時リスト作成
 $(function(){
     $('[name *= "name"]').click(function() {
 		var selectPlace = $('input:radio[name = "place name"]:checked').val();
@@ -153,6 +153,7 @@ function makeFavList(json,placeName,genreName){
 }
 
 //ローカルストレージにデータあればロード　無ければアップする
+//JSONデータを返す
 function loadLocal(){
     var data = localStorage.getItem("data");
     if(data){

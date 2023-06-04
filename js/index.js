@@ -243,7 +243,7 @@ function loadLocal() {
     // console.log(data);
     return JSON.parse(data);
   } else {
-    $.getJSON("../json/shopData3.json").done(function (json) {
+    $.getJSON("json/shopData3.json").done(function (json) {
       let json_data = JSON.stringify(json);
       localStorage.setItem("data", json_data);
       return json;
